@@ -151,7 +151,7 @@ class ViewController: UIViewController {
     }
     
     func changeBgColor(count:Int) {
-        switch(count) {
+        switch (count) {
         case 1:
             touchView.setBackgroundImage(UIImage(named: "b")!)
             btn_l_1.setCheckState(true)

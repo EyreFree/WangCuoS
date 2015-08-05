@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20821B6B416200E1613F /* AppDelegate.swift */; };
 		DA2B20851B6B416200E1613F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20841B6B416200E1613F /* ViewController.swift */; };
-		DA2B208D1B6B416200E1613F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B208B1B6B416200E1613F /* LaunchScreen.storyboard */; };
 		DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */; };
 		DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20951B6B44F700E1613F /* UIRoundButton.swift */; };
 		DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20981B6B45E100E1613F /* Main.storyboard */; };
@@ -20,7 +19,6 @@
 		DA2B207F1B6B416200E1613F /* WangCuoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WangCuoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2B20821B6B416200E1613F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA2B20841B6B416200E1613F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA2B208C1B6B416200E1613F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA2B208E1B6B416200E1613F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITrajectoryView.swift; sourceTree = "<group>"; };
 		DA2B20951B6B44F700E1613F /* UIRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundButton.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				DA2B20821B6B416200E1613F /* AppDelegate.swift */,
 				DA2B20841B6B416200E1613F /* ViewController.swift */,
 				DA2B20981B6B45E100E1613F /* Main.storyboard */,
-				DA2B208B1B6B416200E1613F /* LaunchScreen.storyboard */,
 				DA2B209A1B6B471800E1613F /* Images.xcassets */,
 				DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */,
 				DA2B20951B6B44F700E1613F /* UIRoundButton.swift */,
@@ -129,7 +126,6 @@
 			files = (
 				DA2B209B1B6B471800E1613F /* Images.xcassets in Resources */,
 				DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */,
-				DA2B208D1B6B416200E1613F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,17 +144,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DA2B208B1B6B416200E1613F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA2B208C1B6B416200E1613F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA2B208F1B6B416200E1613F /* Debug */ = {

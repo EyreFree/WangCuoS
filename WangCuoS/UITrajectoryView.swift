@@ -17,8 +17,8 @@ class UITrajectoryView: UIView {
     var lineWidth:CGFloat = 20.0
     
     var pathImage:UIImage!      //黑白图
-    var oriImage:UIImage!       //原图
-    var backImage:UIImage!      //背景的渐变色图（其实可以设置成任意图片）
+    var oriImage:UIImage!       //背景图
+    var backImage:UIImage!      //前景图
     var oldPathImage:UIImage!   //用于撤销的图
     
     var lineColor:UIColor = UIColor.blackColor()
