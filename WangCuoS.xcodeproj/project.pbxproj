@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20821B6B416200E1613F /* AppDelegate.swift */; };
 		DA2B20851B6B416200E1613F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20841B6B416200E1613F /* ViewController.swift */; };
-		DA2B20881B6B416200E1613F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20861B6B416200E1613F /* Main.storyboard */; };
-		DA2B208A1B6B416200E1613F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20891B6B416200E1613F /* Assets.xcassets */; };
 		DA2B208D1B6B416200E1613F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B208B1B6B416200E1613F /* LaunchScreen.storyboard */; };
+		DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */; };
+		DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20951B6B44F700E1613F /* UIRoundButton.swift */; };
+		DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20981B6B45E100E1613F /* Main.storyboard */; };
+		DA2B209B1B6B471800E1613F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2B209A1B6B471800E1613F /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA2B207F1B6B416200E1613F /* WangCuoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WangCuoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2B20821B6B416200E1613F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA2B20841B6B416200E1613F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA2B20871B6B416200E1613F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DA2B20891B6B416200E1613F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA2B208C1B6B416200E1613F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA2B208E1B6B416200E1613F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITrajectoryView.swift; sourceTree = "<group>"; };
+		DA2B20951B6B44F700E1613F /* UIRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundButton.swift; sourceTree = "<group>"; };
+		DA2B20981B6B45E100E1613F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DA2B209A1B6B471800E1613F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 			children = (
 				DA2B20821B6B416200E1613F /* AppDelegate.swift */,
 				DA2B20841B6B416200E1613F /* ViewController.swift */,
-				DA2B20861B6B416200E1613F /* Main.storyboard */,
-				DA2B20891B6B416200E1613F /* Assets.xcassets */,
+				DA2B20981B6B45E100E1613F /* Main.storyboard */,
 				DA2B208B1B6B416200E1613F /* LaunchScreen.storyboard */,
+				DA2B209A1B6B471800E1613F /* Images.xcassets */,
+				DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */,
+				DA2B20951B6B44F700E1613F /* UIRoundButton.swift */,
 				DA2B208E1B6B416200E1613F /* Info.plist */,
 			);
 			path = WangCuoS;
@@ -121,9 +127,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2B209B1B6B471800E1613F /* Images.xcassets in Resources */,
+				DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */,
 				DA2B208D1B6B416200E1613F /* LaunchScreen.storyboard in Resources */,
-				DA2B208A1B6B416200E1613F /* Assets.xcassets in Resources */,
-				DA2B20881B6B416200E1613F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */,
 				DA2B20851B6B416200E1613F /* ViewController.swift in Sources */,
+				DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */,
 				DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,14 +150,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA2B20861B6B416200E1613F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA2B20871B6B416200E1613F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA2B208B1B6B416200E1613F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -248,7 +248,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WangCuoS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EyreFree.WangCuoS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -259,7 +261,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = WangCuoS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EyreFree.WangCuoS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -285,6 +289,7 @@
 				DA2B20931B6B416200E1613F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
