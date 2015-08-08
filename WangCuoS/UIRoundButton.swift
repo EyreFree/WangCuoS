@@ -1,8 +1,8 @@
 //
 //  UIRoundButton.swift
-//  tuMoDeView
+//  WangCuoS
 //
-//  Created by junyu on 15/4/27.
+//  Created by EyreFree on 15/4/27.
 //  Copyright (c) 2015年 eyrefree. All rights reserved.
 //
 
@@ -23,7 +23,6 @@ class UIRoundButton: UIButton {
     var bgColorNormal:UIColor = UIColor.whiteColor()
     var bgColorSelected:UIColor = UIColor.whiteColor()
     
-    //这个是叫重载对吧。
     func initUIRoundButton(imageNormal:UIImage, imageSelected:UIImage) {
         bgIsColor = false
         bgImageNormal = imageNormal

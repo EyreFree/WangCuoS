@@ -1,8 +1,8 @@
 //
 //  UITrajectoryView.swift
-//  beiSaiErQuXian
+//  WangCuoS
 //
-//  Created by junyu on 15/4/17.
+//  Created by EyreFree on 15/4/17.
 //  Copyright (c) 2015年 eyrefree. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Accelerate
 import QuartzCore
 
 class UITrajectoryView: UIView {
-    var controller:ViewController!
+    var controller:TouchController!
     
     var blurValue:CGFloat = 0.1
     var lineWidth:CGFloat = 20.0
@@ -19,21 +19,22 @@ class UITrajectoryView: UIView {
     var pathImage:UIImage!      //黑白图
     var oriImage:UIImage!       //背景图
     var backImage:UIImage!      //前景图
-    var oldPathImage:UIImage!   //用于撤销的图
     
     var lineColor:UIColor = UIColor.blackColor()
     var pointOld:CGPoint!       //最旧的点
     var pointLast:CGPoint!      //上一个点
     var pointNow:CGPoint!       //最新的点
     
-    //var path:CGMutablePathRef!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.whiteColor()
-        pathImage = createImageWithColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1))
+        pathImage = createImageWithColor(
+            UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        )
         setBackgroundImage(
-            createGradientImageWithColor(UIColor(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1))
+            createGradientImageWithColor(
+                UIColor(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
+            )
         )
         return
     }
@@ -41,14 +42,18 @@ class UITrajectoryView: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.whiteColor()
-        pathImage = createImageWithColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1))
+        pathImage = createImageWithColor(
+            UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        )
         setBackgroundImage(
-            createGradientImageWithColor(UIColor(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1))
+            createGradientImageWithColor(
+                UIColor(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
+            )
         )
         return
     }
     
-    func setSuperController(superController:ViewController) {
+    func setSuperController(superController:TouchController) {
         controller = superController
     }
     
@@ -56,9 +61,6 @@ class UITrajectoryView: UIView {
         pointOld = (touches as NSSet).anyObject()?.locationInView(self)
         pointLast = (touches as NSSet).anyObject()?.locationInView(self)
         pointNow = (touches as NSSet).anyObject()?.locationInView(self)
-        
-        //这是为了可以撤销做的副本
-        oldPathImage = pathImage.copy() as! UIImage
         
         //触发Moved
         touchesMoved(touches, withEvent:event);
@@ -96,7 +98,7 @@ class UITrajectoryView: UIView {
         //这句代码很好玩，在不同情况下把这句代码放出来会出现各种奇葩结果，不信你放出来试试...
         //layer.renderInContext(UIGraphicsGetCurrentContext())
         //绘制path到当前context
-        if(nil != path) {
+        if (nil != path) {
             CGContextSetLineWidth(currentContext, lineWidth)
             //直线圆角
             CGContextSetLineCap(currentContext, kCGLineCapRound)
@@ -120,7 +122,7 @@ class UITrajectoryView: UIView {
     
     //把这个消息传上去
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if(nil != controller) {
+        if (nil != controller) {
             controller.touchesEnded(touches, withEvent: event)
         }
     }
@@ -129,7 +131,7 @@ class UITrajectoryView: UIView {
         //绘制渐变背景色
         backImage.drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
         //path高斯模糊,并绘制与前景的叠加图
-        if(nil != pathImage) {
+        if (nil != pathImage) {
             maskImage(oriImage, maskImage: blur(pathImage)).drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
             //maskImage(oriImage, maskImage: pathImage).drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
         }
@@ -170,7 +172,7 @@ class UITrajectoryView: UIView {
         ]
         
         var newSize = self.bounds.size
-        if(nil != oriImage) {
+        if (nil != oriImage) {
             newSize = oriImage.size
         }
         
@@ -421,58 +423,8 @@ class UITrajectoryView: UIView {
         refresh()
     }
     
-    //撤销最近的一次触摸，重复调用只触发第一次
-    func clearLastOne() {
-        if (nil != oldPathImage) {
-            pathImage = oldPathImage
-            refresh()
-            oldPathImage = nil
-        }
-    }
-    
     //刷新一下玩玩
     func refresh() {
         setNeedsDisplayInRect(self.bounds)
-    }
-    
-    //设置算法返回的灰度图
-    func setSuanfaPathImage() {
-        UIGraphicsBeginImageContext(self.bounds.size)
-        createGrayImage(self.bounds.size).drawInRect(self.bounds)
-        pathImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-    }
-    
-    //模拟生成算法灰度图
-    func createGrayImage(size:CGSize)->UIImage {
-        let width:Int = Int(size.width)
-        let height:Int = Int(size.height)
-        
-        //填充参数
-        let bytesPerRow = width
-        let muData = CFDataCreateMutable(nil, width * height)
-        let buffer:UnsafeMutablePointer<UInt8> = CFDataGetMutableBytePtr(muData)
-        
-        //填充灰度值
-        for (var y = 0; y < height; ++y) {
-            for (var x = 0; x < width; ++x) {
-                let tmp:UnsafeMutablePointer<UInt8> = buffer + y * bytesPerRow + x
-                if(pow(Double(x - width / 2), 2.0) + pow(Double(y - height / 2), 2.0) <= 2048) {
-                    (tmp + 0).memory = 0//UInt8(( x + y ) % 255)
-                } else {
-                    (tmp + 0).memory = 255
-                }
-            }
-        }
-        
-        //把图片造出来
-        let effectedCgImage:CGImageRef = CGImageCreate(
-            width, height,
-            8, 8, bytesPerRow,
-            CGColorSpaceCreateDeviceGray(), CGBitmapInfo(rawValue: CGImageAlphaInfo.None.rawValue),
-            CGDataProviderCreateWithCFData(muData),
-            nil, true, kCGRenderingIntentDefault
-        )
-        return UIImage(CGImage: effectedCgImage)
     }
 }

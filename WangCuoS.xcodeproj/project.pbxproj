@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20821B6B416200E1613F /* AppDelegate.swift */; };
-		DA2B20851B6B416200E1613F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20841B6B416200E1613F /* ViewController.swift */; };
+		DA2B20851B6B416200E1613F /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20841B6B416200E1613F /* TouchController.swift */; };
 		DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */; };
 		DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20951B6B44F700E1613F /* UIRoundButton.swift */; };
 		DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20981B6B45E100E1613F /* Main.storyboard */; };
 		DA2B209B1B6B471800E1613F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2B209A1B6B471800E1613F /* Images.xcassets */; };
+		DAFEEBA01B72F315008151F8 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEEB9F1B72F315008151F8 /* MainController.swift */; };
+		DAFEEBA21B72F32D008151F8 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEEBA11B72F32D008151F8 /* TableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA2B207F1B6B416200E1613F /* WangCuoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WangCuoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2B20821B6B416200E1613F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA2B20841B6B416200E1613F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA2B20841B6B416200E1613F /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
 		DA2B208E1B6B416200E1613F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITrajectoryView.swift; sourceTree = "<group>"; };
 		DA2B20951B6B44F700E1613F /* UIRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundButton.swift; sourceTree = "<group>"; };
 		DA2B20981B6B45E100E1613F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA2B209A1B6B471800E1613F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DAFEEB9F1B72F315008151F8 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		DAFEEBA11B72F32D008151F8 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				DA2B20821B6B416200E1613F /* AppDelegate.swift */,
-				DA2B20841B6B416200E1613F /* ViewController.swift */,
+				DAFEEB9F1B72F315008151F8 /* MainController.swift */,
+				DAFEEBA11B72F32D008151F8 /* TableController.swift */,
+				DA2B20841B6B416200E1613F /* TouchController.swift */,
 				DA2B20981B6B45E100E1613F /* Main.storyboard */,
 				DA2B209A1B6B471800E1613F /* Images.xcassets */,
 				DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */,
@@ -136,10 +142,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFEEBA21B72F32D008151F8 /* TableController.swift in Sources */,
 				DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */,
-				DA2B20851B6B416200E1613F /* ViewController.swift in Sources */,
+				DA2B20851B6B416200E1613F /* TouchController.swift in Sources */,
 				DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */,
 				DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */,
+				DAFEEBA01B72F315008151F8 /* MainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -221,7 +229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

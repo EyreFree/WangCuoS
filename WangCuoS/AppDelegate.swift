@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  WangCuoS
 //
-//  Created by Venpoo on 15/7/31.
+//  Created by EyreFree on 15/7/31.
 //  Copyright © 2015年 EyreFree. All rights reserved.
 //
 
@@ -10,9 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
-    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
