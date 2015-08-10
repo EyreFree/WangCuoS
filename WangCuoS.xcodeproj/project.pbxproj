@@ -13,8 +13,8 @@
 		DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20951B6B44F700E1613F /* UIRoundButton.swift */; };
 		DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20981B6B45E100E1613F /* Main.storyboard */; };
 		DA2B209B1B6B471800E1613F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2B209A1B6B471800E1613F /* Images.xcassets */; };
+		DAB4B1DF1B78976400209851 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEEBA11B72F32D008151F8 /* TableController.swift */; };
 		DAFEEBA01B72F315008151F8 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEEB9F1B72F315008151F8 /* MainController.swift */; };
-		DAFEEBA21B72F32D008151F8 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEEBA11B72F32D008151F8 /* TableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAFEEBA21B72F32D008151F8 /* TableController.swift in Sources */,
+				DAB4B1DF1B78976400209851 /* TableController.swift in Sources */,
 				DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */,
 				DA2B20851B6B416200E1613F /* TouchController.swift in Sources */,
 				DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */,

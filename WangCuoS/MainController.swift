@@ -6,6 +6,7 @@
 //  Copyright © 2015年 EyreFree. All rights reserved.
 //
 
+
 import UIKit
 
 class MainController: UIViewController {
@@ -26,7 +27,6 @@ class MainController: UIViewController {
     
     //开始按钮:进入图片选择列表
     @IBAction func btnStart(sender: AnyObject) {
-        
     }
     
     //关于按钮:打开链接
