@@ -92,11 +92,9 @@ class UITrajectoryView: UIView {
         drawBox.size.width += lineWidth * 4
         drawBox.size.height += lineWidth * 4
         
-        //好像是创建一个上下文（上下文是什么...）
+        //好像是创建一个上下文
         UIGraphicsBeginImageContext(bounds.size)
         let currentContext:CGContextRef = UIGraphicsGetCurrentContext()
-        //这句代码很好玩，在不同情况下把这句代码放出来会出现各种奇葩结果，不信你放出来试试...
-        //layer.renderInContext(UIGraphicsGetCurrentContext())
         //绘制path到当前context
         if (nil != path) {
             CGContextSetLineWidth(currentContext, lineWidth)
@@ -111,7 +109,6 @@ class UITrajectoryView: UIView {
         
         //将刚画的这一笔合成到pathimage上去
         pathImage.drawInRect(bounds)
-        //blur(yibiPathImage).drawInRect(bounds)
         yibiPathImage.drawInRect(bounds)
         pathImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -133,19 +130,16 @@ class UITrajectoryView: UIView {
         //path高斯模糊,并绘制与前景的叠加图
         if (nil != pathImage) {
             maskImage(oriImage, maskImage: blur(pathImage)).drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
-            //maskImage(oriImage, maskImage: pathImage).drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
         }
         super.drawRect(rect)
     }
     
     private func blur(theImage:UIImage)->UIImage {
-        //降低图像质量，提高处理速度，灰度图用不了，好难过。
-        /*var quality:CGFloat = 0.00001
-        var imageData:NSData = UIImageJPEGRepresentation(theImage, quality)
-        var blurredImage:UIImage = UIImage(data:imageData)!
-        return gaussianBlur(blurredImage, blurParm: blurValue)*/
-        
-        return gaussianBlur(theImage, blurParm: blurValue)
+        //降低图像质量，提高处理速度
+        let quality:CGFloat = 0.1
+        let imageData:NSData = UIImageJPEGRepresentation(theImage, quality)!
+        let blurredImage:UIImage = UIImage(data:imageData)!
+        return gaussianBlur(blurredImage, blurParm: blurValue)
     }
     
     //绘制纯色图片
@@ -282,7 +276,7 @@ class UITrajectoryView: UIView {
         return newImage
     }
     
-    //初始化，注意这个bgColor必须是rgb颜色空间的...(其实我也不知道rgb颜色是什么意思)
+    //初始化，注意这个bgColor必须是rgb颜色空间的...
     func initTrajectoryView(lineWidth:CGFloat, blur:CGFloat, isCover:Bool, image:UIImage) {
         setOriginImage(image)
         setTouchWidth(lineWidth)
@@ -330,74 +324,12 @@ class UITrajectoryView: UIView {
         return retImage
     }
     
-    //图片尺寸改变
-    private func imageByScalingToSize(targetSize:CGSize, image:UIImage)->UIImage {
-        let sourceImage = image
-        var newImage:UIImage
-        let imageSize = sourceImage.size
-        let width:CGFloat = imageSize.width
-        let height:CGFloat = imageSize.height
-        let targetWidth:CGFloat =  targetSize.width
-        let targetHeight:CGFloat =  targetSize.height
-        var scaleFactor:CGFloat =  0.0
-        var scaledWidth:CGFloat =  targetWidth
-        var scaledHeight:CGFloat =  targetHeight
-        var thumbnailPoint =  CGPointMake(0.0,0.0)
-        if (CGSizeEqualToSize(imageSize, targetSize) == false) {
-            let widthFactor:CGFloat = targetWidth / width
-            let heightFactor:CGFloat =  targetHeight / height
-            
-            if (widthFactor < heightFactor) {
-                scaleFactor = widthFactor
-            } else {
-                scaleFactor = heightFactor
-            }
-            scaledWidth  = width * scaleFactor
-            scaledHeight = height * scaleFactor
-            // center the image
-            if (widthFactor < heightFactor) {
-                thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5
-            } else if (widthFactor > heightFactor) {
-                thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5
-            }
-        }
-        // this is actually the interesting part:
-        UIGraphicsBeginImageContext(targetSize)
-        var thumbnailRect =  CGRectZero
-        thumbnailRect.origin = thumbnailPoint
-        thumbnailRect.size.width  = scaledWidth
-        thumbnailRect.size.height = scaledHeight
-        sourceImage.drawInRect(thumbnailRect)
-        newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }
-    
-    func createSize(usableRect:CGRect, targetSize:CGSize)->CGSize {
-        var width:CGFloat = 0, height:CGFloat = 0
-        let usableSize:CGSize = CGSize(width: usableRect.width, height: usableRect.height)
-        
-        let targetScale:CGFloat = targetSize.width / targetSize.height
-        let usableScale:CGFloat = usableSize.width / usableSize.height
-        
-        if (targetScale > usableScale) {
-            width = usableSize.width
-            height = CGFloat(Int(usableSize.width / targetScale))
-        } else {
-            width = CGFloat(Int(usableSize.height * targetScale))
-            height = usableSize.height
-        }
-        
-        return CGSize(width: width, height: height)
-    }
-    
     //设置前景图片
     func setOriginImage(image:UIImage) {
         self.oriImage = image
     }
     
-    //设置背景颜色
+    //设置背景图片
     func setBackgroundImage(bgImg:UIImage) {
         self.backImage = bgImg
     }

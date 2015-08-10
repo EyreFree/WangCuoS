@@ -12,8 +12,6 @@ class TouchController: UIViewController {
     @IBOutlet weak var rongQi: UIView!
     var touchView: UITrajectoryView!
     
-    var touchMark:Bool = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,18 +36,6 @@ class TouchController: UIViewController {
         touchView.center = rongQi.center
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        touchMark = false
-    }
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (touchMark) {
-            
-        } else {
-            touchMark = true
-        }
-    }
-    
     func createSize(usableRect:CGRect, targetSize:CGSize)->CGSize {
         var width:CGFloat = 0, height:CGFloat = 0
         let usableSize:CGSize = CGSize(width: usableRect.width, height: usableRect.height)
@@ -66,16 +52,6 @@ class TouchController: UIViewController {
         }
         
         return CGSize(width: width, height: height)
-    }
-    
-    //擦除背景
-    @IBAction func caChuBeiJing(sender: AnyObject) {
-        touchView.setTouchState(false)
-    }
-    
-    //恢复背景
-    @IBAction func huiFuBeiJing(sender: AnyObject) {
-        touchView.setTouchState(true)
     }
     
     //撤销一次
