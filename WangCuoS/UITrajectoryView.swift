@@ -10,51 +10,37 @@ import UIKit
 import Accelerate
 import QuartzCore
 
+let IMG_EMPTY_BACK = UIImage(named: "empty_back")!
+let IMG_EMPTY_FORE = UIImage(named: "empty_fore")!
+
 class UITrajectoryView: UIView {
-    var controller:TouchController!
+    var blurValue:CGFloat = 0.1 //边缘模糊度
+    var lineWidth:CGFloat = 20.0//涂抹线宽
     
-    var blurValue:CGFloat = 0.1
-    var lineWidth:CGFloat = 20.0
-    
-    var pathImage:UIImage!      //黑白图
-    var oriImage:UIImage!       //背景图
-    var backImage:UIImage!      //前景图
+    var pathImage:UIImage!      //遮罩图
+    var backImage:UIImage!      //背景图
+    var foreImage:UIImage!      //前景图
     
     var lineColor:UIColor = UIColor.blackColor()
     var pointOld:CGPoint!       //最旧的点
     var pointLast:CGPoint!      //上一个点
     var pointNow:CGPoint!       //最新的点
     
+    func chushihua() {
+        pathImage = createImageWithColor(UIColor.whiteColor())
+        setTouchImages(IMG_EMPTY_FORE, imageBack: IMG_EMPTY_BACK)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.whiteColor()
-        pathImage = createImageWithColor(
-            UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        )
-        setBackgroundImage(
-            createGradientImageWithColor(
-                UIColor(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
-            )
-        )
+        chushihua()
         return
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.whiteColor()
-        pathImage = createImageWithColor(
-            UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        )
-        setBackgroundImage(
-            createGradientImageWithColor(
-                UIColor(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
-            )
-        )
+        chushihua()
         return
-    }
-    
-    func setSuperController(superController:TouchController) {
-        controller = superController
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -80,10 +66,7 @@ class UITrajectoryView: UIView {
         
         CGPathMoveToPoint(path, nil, mid1.x, mid1.y)
         CGPathAddQuadCurveToPoint(path, nil, pointLast.x, pointLast.y, mid2.x, mid2.y)
-        /*
-        CGPathMoveToPoint(path, nil, mid2.x, mid2.y)
-        CGPathAddQuadCurveToPoint(path, nil, mid1.x, mid1.y, pointLast.x, pointLast.y)
-        */
+
         //获取包围path的矩形区域，减少重绘工作量
         var drawBox = CGPathGetBoundingBox(path)
         //计算线宽因素扩大矩形区域使得能够完全容纳path区域
@@ -117,19 +100,12 @@ class UITrajectoryView: UIView {
         setNeedsDisplayInRect(drawBox)
     }
     
-    //把这个消息传上去
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (nil != controller) {
-            controller.touchesEnded(touches, withEvent: event)
-        }
-    }
-    
     override func drawRect(rect: CGRect) {
         //绘制渐变背景色
-        backImage.drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
+        foreImage.drawInRect(bounds)
         //path高斯模糊,并绘制与前景的叠加图
         if (nil != pathImage) {
-            maskImage(oriImage, maskImage: blur(pathImage)).drawInRect(CGRectMake(0, 0, bounds.width, bounds.height))
+            maskImage(backImage, maskImage: blur(pathImage)).drawInRect(bounds)
         }
         super.drawRect(rect)
     }
@@ -142,7 +118,7 @@ class UITrajectoryView: UIView {
         return gaussianBlur(blurredImage, blurParm: blurValue)
     }
     
-    //绘制纯色图片
+    //生成纯色UIImage
     func createImageWithColor(color: UIColor)->UIImage {
         UIGraphicsBeginImageContext(bounds.size)
         let context = UIGraphicsGetCurrentContext()
@@ -151,37 +127,6 @@ class UITrajectoryView: UIView {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
-    }
-    
-    //绘制渐变图片
-    func createGradientImageWithColor(color: UIColor)->UIImage {
-        //获取rgb
-        var components = CGColorGetComponents(color.CGColor);
-        
-        //创建渐变规则
-        let rgb:CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()
-        let colors = [
-            components[0], components[1], components[2], 1.00,
-            CGFloat(1.0) , 1.0, 1.0, 1.00,
-        ]
-        
-        var newSize = self.bounds.size
-        if (nil != oriImage) {
-            newSize = oriImage.size
-        }
-        
-        //画图
-        UIGraphicsBeginImageContext(newSize)
-        CGContextDrawLinearGradient(
-            UIGraphicsGetCurrentContext(),
-            CGGradientCreateWithColorComponents(rgb, colors, nil, 2),
-            CGPointMake(0, 0),
-            CGPointMake(0, newSize.height),
-            1)
-        let rtImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return rtImage
     }
     
     //获取两个点的中点
@@ -248,7 +193,6 @@ class UITrajectoryView: UIView {
             8,
             outBuffer.memory.rowBytes,
             colorSpace,
-            //CGBitmapInfo(CGImageAlphaInfo.Last.rawValue))
             CGImageAlphaInfo.PremultipliedLast.rawValue)
         
         let imageRef = CGBitmapContextCreateImage(ctx)
@@ -266,34 +210,25 @@ class UITrajectoryView: UIView {
         return UIImage(CGImage:imageRef)
     }
     
-    //混合两张图片
-    private func mixImages(backImage:UIImage, frontImage:UIImage)->UIImage {
-        UIGraphicsBeginImageContext(frontImage.size)
-        backImage.drawAtPoint(CGPointMake(0,0))
-        frontImage.drawAtPoint(CGPointMake(0,0))
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
-    //初始化，注意这个bgColor必须是rgb颜色空间的...
-    func initTrajectoryView(lineWidth:CGFloat, blur:CGFloat, isCover:Bool, image:UIImage) {
-        setOriginImage(image)
+    //初始化
+    func initTrajectoryView(lineWidth:CGFloat, blur:CGFloat, isCover:Bool, imageFore:UIImage, imageBack:UIImage) {
+        setTouchImages(imageFore, imageBack: imageBack)
         setTouchWidth(lineWidth)
         setBlurDegree(blur)
         setTouchState(isCover)
     }
     
-    //给图片添加alpha通道，这个函数不知掉有木有问题...
+    //给图片添加alpha通道
     private func CopyImageAndAddAlphaChannel(sourceImage:CGImageRef)->CGImageRef {
         var retVal:CGImageRef!
         let width =  CGImageGetWidth(sourceImage)
         let height =  CGImageGetHeight(sourceImage)
         let colorSpace =  CGColorSpaceCreateDeviceRGB()
         
-        let offscreenContext = CGBitmapContextCreate(nil, width, height,
-            8, 0, colorSpace,
-            CGImageAlphaInfo.PremultipliedFirst.rawValue | CGBitmapInfo.ByteOrder32Little.rawValue)
+        let offscreenContext = CGBitmapContextCreate(
+            nil, width, height, 8, 0, colorSpace,
+            CGImageAlphaInfo.PremultipliedFirst.rawValue | CGBitmapInfo.ByteOrder32Little.rawValue
+        )
         
         if (offscreenContext != nil) {
             CGContextDrawImage(offscreenContext, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), sourceImage)
@@ -304,16 +239,18 @@ class UITrajectoryView: UIView {
     }
     
     //给图拼添加遮罩
-    private func maskImage(oriImage:UIImage, maskImage:UIImage)->UIImage {
+    private func maskImage(backImage:UIImage, maskImage:UIImage)->UIImage {
         let maskRef = maskImage.CGImage
-        let mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+        let mask = CGImageMaskCreate(
+            CGImageGetWidth(maskRef),
             CGImageGetHeight(maskRef),
             CGImageGetBitsPerComponent(maskRef),
             CGImageGetBitsPerPixel(maskRef),
             CGImageGetBytesPerRow(maskRef),
-            CGImageGetDataProvider(maskRef), nil, true)
+            CGImageGetDataProvider(maskRef), nil, true
+        )
         
-        let sourceImage:CGImageRef = oriImage.CGImage!
+        let sourceImage:CGImageRef = backImage.CGImage!
         var imageWithAlpha = sourceImage
         
         if (CGImageGetAlphaInfo(sourceImage) == CGImageAlphaInfo.None) {
@@ -324,14 +261,10 @@ class UITrajectoryView: UIView {
         return retImage
     }
     
-    //设置前景图片
-    func setOriginImage(image:UIImage) {
-        self.oriImage = image
-    }
-    
-    //设置背景图片
-    func setBackgroundImage(bgImg:UIImage) {
-        self.backImage = bgImg
+    //设置图片
+    func setTouchImages(imageFore:UIImage, imageBack:UIImage) {
+        self.backImage = imageBack
+        self.foreImage = imageFore
     }
     
     //设置模糊度
@@ -344,18 +277,18 @@ class UITrajectoryView: UIView {
         self.lineWidth = percentage * 25 + 3
     }
     
-    //设置触摸状态
+    //设置触摸状态:擦除&恢复
     func setTouchState(isCover:Bool) {
         self.lineColor = isCover ? UIColor.whiteColor() : UIColor.blackColor()
     }
     
     //还原所有涂抹
     func clearView() {
-        pathImage = createImageWithColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1))
+        pathImage = createImageWithColor(UIColor.whiteColor())
         refresh()
     }
     
-    //刷新一下玩玩
+    //刷新
     func refresh() {
         setNeedsDisplayInRect(self.bounds)
     }

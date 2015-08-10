@@ -9,28 +9,33 @@
 import UIKit
 
 class MainController: UIViewController {
+    
+    @IBOutlet weak var startBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startBtn.setTitle("start", forState: UIControlState.Normal)
+        startBtn.setImage(UIImage(named: "doge"), forState: UIControlState.Normal)
+        startBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    //开始按钮:进入图片选择列表
     @IBAction func btnStart(sender: AnyObject) {
-        /*let newVC:TouchController = TouchController.new()
-        self.presentViewController(newVC, animated: false, completion: nil)*/
-        NSLog("start!")
+        
     }
     
+    //关于按钮:打开链接
     @IBAction func btnAbout(sender: AnyObject) {
-        //关于按钮:打开链接
         UIApplication.sharedApplication().openURL(NSURL(string: "http://eyrefree.org")!)
     }
     
+    //退出按钮:向中心渐变消失
     @IBAction func btnQuit(sender: AnyObject) {
-        //退出按钮:向中心渐变消失
         let window:UIWindow = ((UIApplication.sharedApplication().delegate?.window)!)!
         window.opaque = true
         window.backgroundColor = UIColor.clearColor()

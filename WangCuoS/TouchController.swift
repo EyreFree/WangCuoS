@@ -18,25 +18,26 @@ class TouchController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLayoutSubviews() {
-        let testImage:UIImage = UIImage(named: "a1_back")!
-        let testSize:CGSize = createSize(
-            CGRectMake(0, 0, rongQi.bounds.width - 20, rongQi.bounds.height - 20),
-            targetSize: testImage.size
+        let foreImage:UIImage = UIImage(named: "a1_fore")!
+        touchView = UITrajectoryView(
+            frame: createAutoRect(
+                CGRectMake(0, 0, rongQi.bounds.width - 8, rongQi.bounds.height - 8),
+                targetSize: foreImage.size
+            )
         )
-        touchView = UITrajectoryView(frame: CGRectMake(0 , 0, testSize.width, testSize.height))
-        touchView.initTrajectoryView(0.3, blur: 0.1, isCover: false, image: testImage)
-        touchView.setBackgroundImage(UIImage(named: "a1_fore")!)
-        touchView.setSuperController(self)
+        touchView.initTrajectoryView(
+            0.8, blur: 0.1, isCover: false,
+            imageFore: foreImage, imageBack: UIImage(named: "a1_back")!
+        )
         
         self.view.addSubview(touchView)
         touchView.center = rongQi.center
     }
     
-    func createSize(usableRect:CGRect, targetSize:CGSize)->CGSize {
+    func createAutoRect(usableRect:CGRect, targetSize:CGSize)->CGRect {
         var width:CGFloat = 0, height:CGFloat = 0
         let usableSize:CGSize = CGSize(width: usableRect.width, height: usableRect.height)
         
@@ -51,52 +52,6 @@ class TouchController: UIViewController {
             height = usableSize.height
         }
         
-        return CGSize(width: width, height: height)
-    }
-    
-    //撤销一次
-    @IBAction func cheXiao(sender: AnyObject) {
-    }
-    
-    //颜色一
-    @IBAction func yanse_1(sender: AnyObject) {
-        changeBgColor(1)
-    }
-    
-    //颜色二
-    @IBAction func yanse_2(sender: AnyObject) {
-        changeBgColor(2)
-    }
-    
-    //颜色三
-    @IBAction func yanse_3(sender: AnyObject) {
-        changeBgColor(3)
-    }
-    
-    func changeBgColor(count:Int) {
-        switch (count) {
-        case 1:
-            touchView.setBackgroundImage(UIImage(named: "b")!)
-            break
-        case 2:
-            touchView.setBackgroundImage(touchView.createGradientImageWithColor(
-                UIColor(red: 255/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1))
-            )
-            break
-        case 3:
-            touchView.setBackgroundImage(touchView.createGradientImageWithColor(
-                UIColor(red: 64/255.0, green: 64/255.0, blue: 255/255.0, alpha: 1))
-            )
-            break
-        default:
-            break
-        }
-        touchView.refresh()
-    }
-    
-    //该变刷子大小
-    @IBAction func changeSlider(sender: AnyObject) {
-        let control:UISlider = sender as! UISlider
-        touchView.setTouchWidth(CGFloat(control.value))
+        return CGRect(x: 0, y: 0, width: width, height: height)
     }
 }

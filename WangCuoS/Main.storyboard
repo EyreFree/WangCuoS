@@ -17,23 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-ea-AVN" userLabel="About">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-ea-AVN" userLabel="About">
+                                <rect key="frame" x="279" y="325" width="42" height="30"/>
                                 <state key="normal" title="About"/>
                                 <connections>
                                     <action selector="btnAbout:" destination="DaI-IA-k4X" eventType="touchUpInside" id="gT7-hJ-Utp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-D2-pVT" userLabel="Quit">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-D2-pVT" userLabel="Quit">
+                                <rect key="frame" x="285" y="363" width="30" height="30"/>
                                 <state key="normal" title="Quit"/>
                                 <connections>
                                     <action selector="btnQuit:" destination="DaI-IA-k4X" eventType="touchUpInside" id="yOS-1o-lRu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-G3-J7e" userLabel="Start">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Start"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-G3-J7e" userLabel="Start">
+                                <rect key="frame" x="280" y="283" width="40" height="34"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="btnStart:" destination="DaI-IA-k4X" eventType="touchUpInside" id="mOk-Sq-jBG"/>
                                     <segue destination="vXZ-lx-hvc" kind="presentation" modalTransitionStyle="flipHorizontal" id="Kt4-dT-sOP"/>
@@ -50,6 +52,9 @@
                             <constraint firstItem="kAP-D2-pVT" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="wFK-HG-bwQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startBtn" destination="Upd-G3-J7e" id="ps0-Km-zIX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hkb-sL-HKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,7 +196,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-vL-sg3" userLabel="rongQi">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-vL-sg3" userLabel="rongQi">
                                 <rect key="frame" x="0.0" y="85" width="600" height="244"/>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.51764705882352946" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -235,14 +240,14 @@
                                         <exclude reference="4nf-wt-GQ1"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="cKv-At-uqk"/>
-                                        <exclude reference="wOh-sh-9Yf"/>
-                                        <exclude reference="wlV-6E-G1e"/>
                                         <exclude reference="JQv-Yz-Hs4"/>
                                         <exclude reference="w9g-Dh-CdK"/>
                                         <exclude reference="QsE-LB-QV5"/>
                                         <exclude reference="ZFi-uY-7Dc"/>
                                         <exclude reference="tcY-JV-yNw"/>
+                                        <exclude reference="cKv-At-uqk"/>
+                                        <exclude reference="wOh-sh-9Yf"/>
+                                        <exclude reference="wlV-6E-G1e"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -252,14 +257,14 @@
                                         <include reference="4nf-wt-GQ1"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="cKv-At-uqk"/>
-                                        <exclude reference="wOh-sh-9Yf"/>
-                                        <include reference="wlV-6E-G1e"/>
                                         <include reference="JQv-Yz-Hs4"/>
                                         <include reference="w9g-Dh-CdK"/>
                                         <include reference="QsE-LB-QV5"/>
                                         <include reference="ZFi-uY-7Dc"/>
                                         <exclude reference="tcY-JV-yNw"/>
+                                        <include reference="cKv-At-uqk"/>
+                                        <exclude reference="wOh-sh-9Yf"/>
+                                        <include reference="wlV-6E-G1e"/>
                                     </mask>
                                 </variation>
                             </view>
