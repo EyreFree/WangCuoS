@@ -17,15 +17,11 @@ class TouchController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func viewDidLayoutSubviews() {
+    override func viewDidAppear(animated: Bool) {
         let foreImage:UIImage = UIImage(named: "a1_fore")!
         touchView = UITrajectoryView(
             frame: createAutoRect(
-                CGRectMake(0, 0, rongQi.bounds.width - 8, rongQi.bounds.height - 8),
+                CGRectMake(0, 0, rongQi.bounds.width, rongQi.bounds.height),
                 targetSize: foreImage.size
             )
         )
@@ -36,6 +32,10 @@ class TouchController: UIViewController {
         
         self.view.addSubview(touchView)
         touchView.center = rongQi.center
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     func createAutoRect(usableRect:CGRect, targetSize:CGSize)->CGRect {

@@ -154,56 +154,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-vL-sg3" userLabel="rongQi">
-                                <rect key="frame" x="0.0" y="20" width="600" height="542"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.51764705882352946" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kim-DI-53r" userLabel="bottomArea">
-                                <rect key="frame" x="0.0" y="562" width="600" height="38"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atK-bh-UkM">
-                                        <rect key="frame" x="8" y="4" width="30" height="30"/>
-                                        <state key="normal" title="left"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGF-XK-vXO">
-                                        <rect key="frame" x="560" y="4" width="32" height="30"/>
-                                        <state key="normal" title="right"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nf-wt-GQ1">
-                                        <rect key="frame" x="281" y="4" width="39" height="30"/>
-                                        <state key="normal" title="menu"/>
-                                        <connections>
-                                            <segue destination="DaI-IA-k4X" kind="presentation" modalTransitionStyle="flipHorizontal" id="x0b-Wi-yGx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="0YL-en-FO6"/>
-                                    <constraint firstItem="atK-bh-UkM" firstAttribute="centerY" secondItem="kim-DI-53r" secondAttribute="centerY" id="G1b-9K-uoK"/>
-                                    <constraint firstItem="4nf-wt-GQ1" firstAttribute="centerY" secondItem="kim-DI-53r" secondAttribute="centerY" id="JQv-Yz-Hs4"/>
-                                    <constraint firstAttribute="trailing" secondItem="XGF-XK-vXO" secondAttribute="trailing" constant="8" id="QsE-LB-QV5"/>
-                                    <constraint firstItem="atK-bh-UkM" firstAttribute="leading" secondItem="kim-DI-53r" secondAttribute="leading" constant="8" id="cKv-At-uqk"/>
-                                    <constraint firstItem="XGF-XK-vXO" firstAttribute="centerY" secondItem="kim-DI-53r" secondAttribute="centerY" id="n1y-mF-C4e"/>
-                                    <constraint firstItem="4nf-wt-GQ1" firstAttribute="centerX" secondItem="kim-DI-53r" secondAttribute="centerX" id="w9g-Dh-CdK"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHW-l6-SGY" userLabel="headArea">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHW-l6-SGY" userLabel="headArea">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.51764705882352935" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kim-DI-53r" secondAttribute="trailing" id="9cu-I1-OOR"/>
-                            <constraint firstItem="hPY-vL-sg3" firstAttribute="top" secondItem="HHW-l6-SGY" secondAttribute="bottom" id="FBx-a1-4B8"/>
                             <constraint firstAttribute="trailing" secondItem="hPY-vL-sg3" secondAttribute="trailing" id="LN6-zc-X3i"/>
                             <constraint firstItem="HHW-l6-SGY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="VOL-2k-XxA"/>
-                            <constraint firstAttribute="bottom" secondItem="kim-DI-53r" secondAttribute="bottom" id="WUb-hb-g04"/>
+                            <constraint firstAttribute="bottom" secondItem="hPY-vL-sg3" secondAttribute="bottom" id="blR-M7-SXZ"/>
                             <constraint firstItem="hPY-vL-sg3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eU9-sY-TGb"/>
                             <constraint firstItem="HHW-l6-SGY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nnI-9K-thO"/>
                             <constraint firstItem="hPY-vL-sg3" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="px8-hS-FDz"/>
-                            <constraint firstItem="kim-DI-53r" firstAttribute="top" secondItem="hPY-vL-sg3" secondAttribute="bottom" id="tf2-Is-vBP"/>
-                            <constraint firstItem="kim-DI-53r" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="uCa-HK-7Xt"/>
                             <constraint firstAttribute="trailing" secondItem="HHW-l6-SGY" secondAttribute="trailing" id="vST-h7-2uo"/>
                         </constraints>
                     </view>
