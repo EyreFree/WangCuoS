@@ -11,6 +11,7 @@ import UIKit
 
 class TableController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var previewImageList:Array<UIImage>!
+    var previewImageIndex:Int = 0
     
     @IBOutlet weak var previewImgView: UIImageView!
     override func viewDidLoad() {
@@ -55,7 +56,8 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        previewImgView.image = previewImageList[indexPath.section * 3]
+        previewImageIndex = indexPath.section
+        previewImgView.image = previewImageList[previewImageIndex * 3]
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -67,6 +69,22 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     @IBAction func selectBtnClick(sender: AnyObject) {
-        NSLog("Select!")
+        
+    }
+    
+    @IBAction func cancelBtnClick(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == nil) {
+            return
+        }
+        
+        let dest:UIViewController? = segue.destinationViewController
+        if (NSComparisonResult.OrderedSame == segue.identifier?.compare("table2touch")) {
+            dest?.setValue(previewImageList[previewImageIndex * 3 + 1], forKey: "img_fore")
+            dest?.setValue(previewImageList[previewImageIndex * 3 + 2], forKey: "img_back")
+        }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0700"
-   version = "1.3">
+   version = "1.8">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-               BuildableName = "Mosatsu.app"
+               BuildableName = "Rip!Mosatsu.app"
                BlueprintName = "WangCuoS"
                ReferencedContainer = "container:WangCuoS.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-            BuildableName = "Mosatsu.app"
+            BuildableName = "Rip!Mosatsu.app"
             BlueprintName = "WangCuoS"
             ReferencedContainer = "container:WangCuoS.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-            BuildableName = "Mosatsu.app"
+            BuildableName = "Rip!Mosatsu.app"
             BlueprintName = "WangCuoS"
             ReferencedContainer = "container:WangCuoS.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-            BuildableName = "Mosatsu.app"
+            BuildableName = "Rip!Mosatsu.app"
             BlueprintName = "WangCuoS"
             ReferencedContainer = "container:WangCuoS.xcodeproj">
          </BuildableReference>

@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Main Controller-->
         <scene sceneID="FQi-NF-69y">
             <objects>
-                <viewController id="DaI-IA-k4X" customClass="MainController" customModule="Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DaI-IA-k4X" customClass="MainController" customModule="Rip_Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eAs-BD-mVS"/>
                         <viewControllerLayoutGuide type="bottom" id="Odw-ie-ahk"/>
@@ -26,7 +27,7 @@
                                 <state key="normal" image="btn_start"/>
                                 <connections>
                                     <action selector="btnStart:" destination="DaI-IA-k4X" eventType="touchUpInside" id="mOk-Sq-jBG"/>
-                                    <segue destination="FH5-5m-7E2" kind="presentation" identifier="main2table" modalTransitionStyle="flipHorizontal" id="nY5-mj-28V"/>
+                                    <segue destination="FH5-5m-7E2" kind="presentation" identifier="main2table" modalTransitionStyle="partialCurl" id="nY5-mj-28V"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-ea-AVN" userLabel="About">
@@ -51,28 +52,25 @@
                                     <action selector="btnQuit:" destination="DaI-IA-k4X" eventType="touchUpInside" id="yOS-1o-lRu"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="7Pf-At-0F9">
+                                <rect key="frame" x="0.0" y="253" width="600" height="347"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7Pf-At-0F9" secondAttribute="height" multiplier="19:11" id="jz3-IJ-ZxY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kAP-D2-pVT" firstAttribute="top" secondItem="ciD-ea-AVN" secondAttribute="bottom" constant="18" id="23G-u5-8N4"/>
                             <constraint firstItem="Upd-G3-J7e" firstAttribute="top" secondItem="tSO-sw-6rF" secondAttribute="top" constant="38" id="2vb-Ag-Mis"/>
-                            <constraint firstItem="ciD-ea-AVN" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="3Hd-WK-Ocn"/>
-                            <constraint firstItem="Upd-G3-J7e" firstAttribute="centerY" secondItem="tSO-sw-6rF" secondAttribute="centerY" id="A6O-Qf-QtW"/>
+                            <constraint firstItem="7Pf-At-0F9" firstAttribute="width" secondItem="tSO-sw-6rF" secondAttribute="width" id="Cbd-d6-pGa"/>
+                            <constraint firstAttribute="bottom" secondItem="7Pf-At-0F9" secondAttribute="bottom" id="Dle-h9-1ST"/>
                             <constraint firstAttribute="trailing" secondItem="ciD-ea-AVN" secondAttribute="trailing" constant="20" id="E6T-Ns-U8C"/>
-                            <constraint firstItem="Upd-G3-J7e" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="UNE-5r-dC6"/>
                             <constraint firstAttribute="trailing" secondItem="kAP-D2-pVT" secondAttribute="trailing" constant="20" id="sGX-8e-rAP"/>
                             <constraint firstAttribute="trailing" secondItem="Upd-G3-J7e" secondAttribute="trailing" constant="20" id="sIT-ri-NSu"/>
+                            <constraint firstItem="7Pf-At-0F9" firstAttribute="leading" secondItem="tSO-sw-6rF" secondAttribute="leading" id="seU-CE-q9e"/>
                             <constraint firstItem="ciD-ea-AVN" firstAttribute="top" secondItem="Upd-G3-J7e" secondAttribute="bottom" constant="18" id="uB1-nf-pV4"/>
-                            <constraint firstItem="kAP-D2-pVT" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="wFK-HG-bwQ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="A6O-Qf-QtW"/>
-                                <exclude reference="UNE-5r-dC6"/>
-                                <exclude reference="3Hd-WK-Ocn"/>
-                                <exclude reference="wFK-HG-bwQ"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="aboutBtn" destination="ciD-ea-AVN" id="bBL-cK-GnY"/>
@@ -87,7 +85,7 @@
         <!--Table Controller-->
         <scene sceneID="Vjr-2y-FDD">
             <objects>
-                <viewController id="FH5-5m-7E2" customClass="TableController" customModule="Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FH5-5m-7E2" customClass="TableController" customModule="Rip_Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1fR-Zs-1AP"/>
                         <viewControllerLayoutGuide type="bottom" id="jI7-Ou-btg"/>
@@ -131,23 +129,37 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a1" translatesAutoresizingMaskIntoConstraints="NO" id="W5Z-A5-us3">
                                 <rect key="frame" x="60" y="0.0" width="540" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fei-Lf-Qsf">
-                                <rect key="frame" x="60" y="555" width="540" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr4-ZQ-ATw">
+                                <rect key="frame" x="556" y="8" width="36" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="o7y-sn-e38"/>
+                                    <constraint firstAttribute="height" constant="36" id="3Ef-U1-tmj"/>
+                                    <constraint firstAttribute="width" constant="36" id="FMn-1Y-gEC"/>
                                 </constraints>
-                                <state key="normal" title="select"/>
+                                <state key="normal" image="btn_no"/>
+                                <connections>
+                                    <action selector="cancelBtnClick:" destination="FH5-5m-7E2" eventType="touchUpInside" id="xtV-7t-D9f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fei-Lf-Qsf">
+                                <rect key="frame" x="556" y="556" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="U8a-kT-cKH"/>
+                                    <constraint firstAttribute="height" constant="36" id="o7y-sn-e38"/>
+                                </constraints>
+                                <state key="normal" image="btn_yes"/>
                                 <connections>
                                     <action selector="selectBtnClick:" destination="FH5-5m-7E2" eventType="touchUpInside" id="5M3-jb-YJI"/>
-                                    <segue destination="vXZ-lx-hvc" kind="presentation" identifier="table2touch" modalTransitionStyle="flipHorizontal" id="eQL-JY-rNk"/>
+                                    <segue destination="vXZ-lx-hvc" kind="presentation" identifier="table2touch" modalTransitionStyle="partialCurl" id="eQL-JY-rNk"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bpb-KE-TRw" firstAttribute="leading" secondItem="RfH-WO-xfO" secondAttribute="leading" id="5Ug-ik-QBc"/>
+                            <constraint firstItem="Mr4-ZQ-ATw" firstAttribute="top" secondItem="RfH-WO-xfO" secondAttribute="top" constant="8" id="5rE-nL-SL5"/>
                             <constraint firstAttribute="trailing" secondItem="Fei-Lf-Qsf" secondAttribute="trailing" id="8Ku-bv-lL0"/>
                             <constraint firstAttribute="trailing" secondItem="W5Z-A5-us3" secondAttribute="trailing" id="Efg-pR-PKK"/>
+                            <constraint firstItem="Fei-Lf-Qsf" firstAttribute="top" secondItem="RfH-WO-xfO" secondAttribute="top" constant="8" id="Eh7-0R-ls3"/>
                             <constraint firstItem="bpb-KE-TRw" firstAttribute="top" secondItem="RfH-WO-xfO" secondAttribute="top" id="KcB-Gp-i8p"/>
                             <constraint firstAttribute="bottom" secondItem="Fei-Lf-Qsf" secondAttribute="bottom" id="RCB-5b-Jhu"/>
                             <constraint firstAttribute="bottom" secondItem="bpb-KE-TRw" secondAttribute="bottom" id="St2-P8-TP5"/>
@@ -155,7 +167,18 @@
                             <constraint firstItem="W5Z-A5-us3" firstAttribute="top" secondItem="RfH-WO-xfO" secondAttribute="top" id="UXs-Vb-wne"/>
                             <constraint firstItem="W5Z-A5-us3" firstAttribute="leading" secondItem="bpb-KE-TRw" secondAttribute="trailing" id="ahd-7T-JZZ"/>
                             <constraint firstItem="Fei-Lf-Qsf" firstAttribute="leading" secondItem="bpb-KE-TRw" secondAttribute="trailing" id="ef9-Kv-kPu"/>
+                            <constraint firstAttribute="bottom" secondItem="Fei-Lf-Qsf" secondAttribute="bottom" constant="8" id="hPV-yZ-PJM"/>
+                            <constraint firstAttribute="trailing" secondItem="Fei-Lf-Qsf" secondAttribute="trailing" constant="8" id="txT-h1-ZL8"/>
+                            <constraint firstAttribute="trailing" secondItem="Mr4-ZQ-ATw" secondAttribute="trailing" constant="8" id="vRg-5e-b5m"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Ku-bv-lL0"/>
+                                <exclude reference="Eh7-0R-ls3"/>
+                                <exclude reference="RCB-5b-Jhu"/>
+                                <exclude reference="ef9-Kv-kPu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="2hZ-yQ-n3D"/>
                     <connections>
@@ -169,7 +192,7 @@
         <!--Touch Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="TouchController" customModule="Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="TouchController" customModule="Rip_Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -180,19 +203,33 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-vL-sg3" userLabel="rongQi">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.25098039215686274" green="0.51764705882352946" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.86274509799999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pub-R7-JrA">
+                                <rect key="frame" x="556" y="8" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="feN-wy-Yjj"/>
+                                    <constraint firstAttribute="width" constant="36" id="hLb-uL-ByY"/>
+                                </constraints>
+                                <state key="normal" image="btn_no"/>
+                                <connections>
+                                    <action selector="cancelBtnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fvp-I5-X0r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Pub-R7-JrA" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="8" id="52R-aZ-7vg"/>
                             <constraint firstAttribute="trailing" secondItem="hPY-vL-sg3" secondAttribute="trailing" id="LN6-zc-X3i"/>
                             <constraint firstItem="hPY-vL-sg3" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Lpo-Lc-WQJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Pub-R7-JrA" secondAttribute="trailing" constant="8" id="bOx-sn-Rwl"/>
                             <constraint firstAttribute="bottom" secondItem="hPY-vL-sg3" secondAttribute="bottom" id="blR-M7-SXZ"/>
                             <constraint firstItem="hPY-vL-sg3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eU9-sY-TGb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lI2-2Z-KYF"/>
                     <connections>
+                        <outlet property="cancelBtn" destination="Pub-R7-JrA" id="36a-wk-fdq"/>
                         <outlet property="rongQi" destination="hPY-vL-sg3" id="I1I-t5-PDA"/>
                     </connections>
                 </viewController>
@@ -202,9 +239,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Title" width="380" height="220"/>
         <image name="a1" width="480" height="720"/>
         <image name="btn_about" width="300" height="100"/>
+        <image name="btn_no" width="72" height="72"/>
         <image name="btn_quit" width="300" height="100"/>
         <image name="btn_start" width="300" height="100"/>
+        <image name="btn_yes" width="72" height="72"/>
     </resources>
 </document>
