@@ -180,7 +180,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="2hZ-yQ-n3D"/>
                     <connections>
                         <outlet property="previewImgView" destination="W5Z-A5-us3" id="vdm-Wb-Dm9"/>
                     </connections>
