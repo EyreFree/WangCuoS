@@ -21,10 +21,10 @@ class MainController: UIViewController {
         //设置背景图片
         view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_1.jpg")!)
         
-        //设置按钮图片:TODO
-        startBtn.setImage(UIImage(named: "btn_start_s"), forState: UIControlState.Reserved)
-        aboutBtn.setImage(UIImage(named: "btn_about_s"), forState: UIControlState.Selected)
-        quitBtn.setImage(UIImage(named: "btn_quit_s"), forState: UIControlState.Selected)
+        //设置按钮图片
+        startBtn.setImage(UIImage(named: "btn_start_s"), forState: UIControlState.Highlighted)
+        aboutBtn.setImage(UIImage(named: "btn_about_s"), forState: UIControlState.Highlighted)
+        quitBtn.setImage(UIImage(named: "btn_quit_s"), forState: UIControlState.Highlighted)
     }
     
     override func didReceiveMemoryWarning() {

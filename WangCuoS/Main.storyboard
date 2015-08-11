@@ -179,23 +179,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-vL-sg3" userLabel="rongQi">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.51764705882352946" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHW-l6-SGY" userLabel="headArea">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
-                                <color key="backgroundColor" red="0.25098039215686274" green="0.51764705882352935" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hPY-vL-sg3" secondAttribute="trailing" id="LN6-zc-X3i"/>
-                            <constraint firstItem="HHW-l6-SGY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="VOL-2k-XxA"/>
+                            <constraint firstItem="hPY-vL-sg3" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Lpo-Lc-WQJ"/>
                             <constraint firstAttribute="bottom" secondItem="hPY-vL-sg3" secondAttribute="bottom" id="blR-M7-SXZ"/>
                             <constraint firstItem="hPY-vL-sg3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eU9-sY-TGb"/>
-                            <constraint firstItem="HHW-l6-SGY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nnI-9K-thO"/>
-                            <constraint firstItem="hPY-vL-sg3" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="px8-hS-FDz"/>
-                            <constraint firstAttribute="trailing" secondItem="HHW-l6-SGY" secondAttribute="trailing" id="vST-h7-2uo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lI2-2Z-KYF"/>

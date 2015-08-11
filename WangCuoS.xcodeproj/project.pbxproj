@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA2B207F1B6B416200E1613F /* Mosatsu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mosatsu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2B207F1B6B416200E1613F /* Rip!Mosatsu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rip!Mosatsu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2B20821B6B416200E1613F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA2B20841B6B416200E1613F /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
 		DA2B208E1B6B416200E1613F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		DA2B20801B6B416200E1613F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA2B207F1B6B416200E1613F /* Mosatsu.app */,
+				DA2B207F1B6B416200E1613F /* Rip!Mosatsu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 			);
 			name = WangCuoS;
 			productName = WangCuoS;
-			productReference = DA2B207F1B6B416200E1613F /* Mosatsu.app */;
+			productReference = DA2B207F1B6B416200E1613F /* Rip!Mosatsu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -248,7 +248,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EyreFree.WangCuoS;
-				PRODUCT_NAME = Mosatsu;
+				PRODUCT_NAME = "Rip!Mosatsu";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -262,7 +262,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EyreFree.WangCuoS;
-				PRODUCT_NAME = Mosatsu;
+				PRODUCT_NAME = "Rip!Mosatsu";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

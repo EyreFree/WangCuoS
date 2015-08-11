@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-               BuildableName = "WangCuoS.app"
+               BuildableName = "Mosatsu.app"
                BlueprintName = "WangCuoS"
                ReferencedContainer = "container:WangCuoS.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-            BuildableName = "WangCuoS.app"
+            BuildableName = "Mosatsu.app"
             BlueprintName = "WangCuoS"
             ReferencedContainer = "container:WangCuoS.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-            BuildableName = "WangCuoS.app"
+            BuildableName = "Mosatsu.app"
             BlueprintName = "WangCuoS"
             ReferencedContainer = "container:WangCuoS.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DA2B207E1B6B416200E1613F"
-            BuildableName = "WangCuoS.app"
+            BuildableName = "Mosatsu.app"
             BlueprintName = "WangCuoS"
             ReferencedContainer = "container:WangCuoS.xcodeproj">
          </BuildableReference>
