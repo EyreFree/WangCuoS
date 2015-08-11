@@ -8,7 +8,7 @@
         <!--Main Controller-->
         <scene sceneID="FQi-NF-69y">
             <objects>
-                <viewController id="DaI-IA-k4X" customClass="MainController" customModule="WangCuoS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DaI-IA-k4X" customClass="MainController" customModule="Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eAs-BD-mVS"/>
                         <viewControllerLayoutGuide type="bottom" id="Odw-ie-ahk"/>
@@ -17,42 +17,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-ea-AVN" userLabel="About">
-                                <rect key="frame" x="279" y="325" width="42" height="30"/>
-                                <state key="normal" title="About"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-G3-J7e" userLabel="Start">
+                                <rect key="frame" x="430" y="38" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D2X-PJ-FUp"/>
+                                    <constraint firstAttribute="width" constant="150" id="pBZ-Rc-HMX"/>
+                                </constraints>
+                                <state key="normal" image="btn_start"/>
+                                <connections>
+                                    <action selector="btnStart:" destination="DaI-IA-k4X" eventType="touchUpInside" id="mOk-Sq-jBG"/>
+                                    <segue destination="FH5-5m-7E2" kind="presentation" identifier="main2table" modalTransitionStyle="flipHorizontal" id="nY5-mj-28V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-ea-AVN" userLabel="About">
+                                <rect key="frame" x="430" y="106" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="F5D-0g-hwk"/>
+                                    <constraint firstAttribute="height" constant="50" id="rih-5x-m0V"/>
+                                </constraints>
+                                <state key="normal" image="btn_about"/>
                                 <connections>
                                     <action selector="btnAbout:" destination="DaI-IA-k4X" eventType="touchUpInside" id="gT7-hJ-Utp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-D2-pVT" userLabel="Quit">
-                                <rect key="frame" x="285" y="363" width="30" height="30"/>
-                                <state key="normal" title="Quit"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-D2-pVT" userLabel="Quit">
+                                <rect key="frame" x="430" y="174" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="P31-XG-z7u"/>
+                                    <constraint firstAttribute="height" constant="50" id="Zvl-EJ-jnc"/>
+                                </constraints>
+                                <state key="normal" image="btn_quit"/>
                                 <connections>
                                     <action selector="btnQuit:" destination="DaI-IA-k4X" eventType="touchUpInside" id="yOS-1o-lRu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-G3-J7e" userLabel="Start">
-                                <rect key="frame" x="280" y="283" width="40" height="34"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnStart:" destination="DaI-IA-k4X" eventType="touchUpInside" id="mOk-Sq-jBG"/>
-                                    <segue destination="FH5-5m-7E2" kind="presentation" modalTransitionStyle="flipHorizontal" id="USF-w4-l41"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kAP-D2-pVT" firstAttribute="top" secondItem="ciD-ea-AVN" secondAttribute="bottom" constant="8" id="23G-u5-8N4"/>
+                            <constraint firstItem="kAP-D2-pVT" firstAttribute="top" secondItem="ciD-ea-AVN" secondAttribute="bottom" constant="18" id="23G-u5-8N4"/>
+                            <constraint firstItem="Upd-G3-J7e" firstAttribute="top" secondItem="tSO-sw-6rF" secondAttribute="top" constant="38" id="2vb-Ag-Mis"/>
                             <constraint firstItem="ciD-ea-AVN" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="3Hd-WK-Ocn"/>
                             <constraint firstItem="Upd-G3-J7e" firstAttribute="centerY" secondItem="tSO-sw-6rF" secondAttribute="centerY" id="A6O-Qf-QtW"/>
+                            <constraint firstAttribute="trailing" secondItem="ciD-ea-AVN" secondAttribute="trailing" constant="20" id="E6T-Ns-U8C"/>
                             <constraint firstItem="Upd-G3-J7e" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="UNE-5r-dC6"/>
-                            <constraint firstItem="ciD-ea-AVN" firstAttribute="top" secondItem="Upd-G3-J7e" secondAttribute="bottom" constant="8" id="uB1-nf-pV4"/>
+                            <constraint firstAttribute="trailing" secondItem="kAP-D2-pVT" secondAttribute="trailing" constant="20" id="sGX-8e-rAP"/>
+                            <constraint firstAttribute="trailing" secondItem="Upd-G3-J7e" secondAttribute="trailing" constant="20" id="sIT-ri-NSu"/>
+                            <constraint firstItem="ciD-ea-AVN" firstAttribute="top" secondItem="Upd-G3-J7e" secondAttribute="bottom" constant="18" id="uB1-nf-pV4"/>
                             <constraint firstItem="kAP-D2-pVT" firstAttribute="centerX" secondItem="tSO-sw-6rF" secondAttribute="centerX" id="wFK-HG-bwQ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="A6O-Qf-QtW"/>
+                                <exclude reference="UNE-5r-dC6"/>
+                                <exclude reference="3Hd-WK-Ocn"/>
+                                <exclude reference="wFK-HG-bwQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="aboutBtn" destination="ciD-ea-AVN" id="bBL-cK-GnY"/>
+                        <outlet property="quitBtn" destination="kAP-D2-pVT" id="yis-H4-Q5P"/>
                         <outlet property="startBtn" destination="Upd-G3-J7e" id="ps0-Km-zIX"/>
                     </connections>
                 </viewController>
@@ -63,7 +87,7 @@
         <!--Table Controller-->
         <scene sceneID="Vjr-2y-FDD">
             <objects>
-                <viewController id="FH5-5m-7E2" customClass="TableController" customModule="WangCuoS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FH5-5m-7E2" customClass="TableController" customModule="Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1fR-Zs-1AP"/>
                         <viewControllerLayoutGuide type="bottom" id="jI7-Ou-btg"/>
@@ -133,6 +157,7 @@
                             <constraint firstItem="Fei-Lf-Qsf" firstAttribute="leading" secondItem="bpb-KE-TRw" secondAttribute="trailing" id="ef9-Kv-kPu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2hZ-yQ-n3D"/>
                     <connections>
                         <outlet property="previewImgView" destination="W5Z-A5-us3" id="vdm-Wb-Dm9"/>
                     </connections>
@@ -144,7 +169,7 @@
         <!--Touch Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="TouchController" customModule="WangCuoS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="TouchController" customModule="Mosatsu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -185,5 +210,8 @@
     </scenes>
     <resources>
         <image name="a1" width="480" height="720"/>
+        <image name="btn_about" width="300" height="100"/>
+        <image name="btn_quit" width="300" height="100"/>
+        <image name="btn_start" width="300" height="100"/>
     </resources>
 </document>

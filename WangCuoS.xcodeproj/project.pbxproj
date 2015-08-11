@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA2B207F1B6B416200E1613F /* WangCuoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WangCuoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2B207F1B6B416200E1613F /* Mosatsu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mosatsu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2B20821B6B416200E1613F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA2B20841B6B416200E1613F /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
 		DA2B208E1B6B416200E1613F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		DA2B20801B6B416200E1613F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA2B207F1B6B416200E1613F /* WangCuoS.app */,
+				DA2B207F1B6B416200E1613F /* Mosatsu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 			);
 			name = WangCuoS;
 			productName = WangCuoS;
-			productReference = DA2B207F1B6B416200E1613F /* WangCuoS.app */;
+			productReference = DA2B207F1B6B416200E1613F /* Mosatsu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -193,6 +193,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -231,6 +232,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -246,7 +248,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EyreFree.WangCuoS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Mosatsu;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -260,7 +262,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.EyreFree.WangCuoS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Mosatsu;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

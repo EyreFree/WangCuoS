@@ -12,13 +12,19 @@ import UIKit
 class MainController: UIViewController {
     
     @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var aboutBtn: UIButton!
+    @IBOutlet weak var quitBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startBtn.setTitle("start", forState: UIControlState.Normal)
-        startBtn.setImage(UIImage(named: "doge"), forState: UIControlState.Normal)
-        startBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
+        //设置背景图片
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_1.jpg")!)
+        
+        //设置按钮图片:TODO
+        startBtn.setImage(UIImage(named: "btn_start_s"), forState: UIControlState.Reserved)
+        aboutBtn.setImage(UIImage(named: "btn_about_s"), forState: UIControlState.Selected)
+        quitBtn.setImage(UIImage(named: "btn_quit_s"), forState: UIControlState.Selected)
     }
     
     override func didReceiveMemoryWarning() {
