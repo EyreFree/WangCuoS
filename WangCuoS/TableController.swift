@@ -31,10 +31,22 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //去除 present modally 的手势
+        if let gestures = self.view.gestureRecognizers as [UIGestureRecognizer]? {
+            for gesture in gestures {
+                self.view.removeGestureRecognizer(gesture)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    //TableView相关
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return previewImageList.count / 3
     }
@@ -68,6 +80,7 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
         return 0
     }
     
+    //按钮事件
     @IBAction func selectBtnClick(sender: AnyObject) {
         
     }
@@ -76,6 +89,8 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    //跳转准备工作
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == nil) {
             return

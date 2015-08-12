@@ -44,6 +44,17 @@ class TouchController: UIViewController {
         view.bringSubviewToFront(cancelBtn)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //去除 present modally 的手势
+        if let gestures = self.view.gestureRecognizers as [UIGestureRecognizer]? {
+            for gesture in gestures {
+                self.view.removeGestureRecognizer(gesture)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
