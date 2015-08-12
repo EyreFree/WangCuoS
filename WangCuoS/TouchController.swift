@@ -23,8 +23,8 @@ class TouchController: UIViewController {
         
         //添加涂抹区
         if (nil == img_fore || nil == img_back) {
-            img_fore = UIImage(named: "empty_fore")!
-            img_back = UIImage(named: "empty_back")!
+            img_fore = IMG_EMPTY_FORE
+            img_back = IMG_EMPTY_BACK
         }
         touchView = UITrajectoryView(
             frame: createAutoRect(

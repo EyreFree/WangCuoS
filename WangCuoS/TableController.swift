@@ -17,6 +17,7 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //加载图片
         self.previewImageList = Array()
         for (var i = 1; ; ++i) {
             let tryImgPre:UIImage? = UIImage(named: "a\(i)")

@@ -10,7 +10,6 @@
 		DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20821B6B416200E1613F /* AppDelegate.swift */; };
 		DA2B20851B6B416200E1613F /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20841B6B416200E1613F /* TouchController.swift */; };
 		DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */; };
-		DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B20951B6B44F700E1613F /* UIRoundButton.swift */; };
 		DA2B20991B6B45E100E1613F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2B20981B6B45E100E1613F /* Main.storyboard */; };
 		DA2B209B1B6B471800E1613F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2B209A1B6B471800E1613F /* Images.xcassets */; };
 		DAB4B1DF1B78976400209851 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFEEBA11B72F32D008151F8 /* TableController.swift */; };
@@ -23,7 +22,6 @@
 		DA2B20841B6B416200E1613F /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
 		DA2B208E1B6B416200E1613F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITrajectoryView.swift; sourceTree = "<group>"; };
-		DA2B20951B6B44F700E1613F /* UIRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundButton.swift; sourceTree = "<group>"; };
 		DA2B20981B6B45E100E1613F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA2B209A1B6B471800E1613F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAFEEB9F1B72F315008151F8 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -60,17 +58,40 @@
 		DA2B20811B6B416200E1613F /* WangCuoS */ = {
 			isa = PBXGroup;
 			children = (
+				DADAD53F1B7AE0F200E5F1A1 /* Menu */,
+				DADAD5401B7AE10200E5F1A1 /* Table */,
+				DADAD5411B7AE10C00E5F1A1 /* Touch */,
 				DA2B20821B6B416200E1613F /* AppDelegate.swift */,
-				DAFEEB9F1B72F315008151F8 /* MainController.swift */,
-				DAFEEBA11B72F32D008151F8 /* TableController.swift */,
-				DA2B20841B6B416200E1613F /* TouchController.swift */,
 				DA2B20981B6B45E100E1613F /* Main.storyboard */,
 				DA2B209A1B6B471800E1613F /* Images.xcassets */,
-				DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */,
-				DA2B20951B6B44F700E1613F /* UIRoundButton.swift */,
 				DA2B208E1B6B416200E1613F /* Info.plist */,
 			);
 			path = WangCuoS;
+			sourceTree = "<group>";
+		};
+		DADAD53F1B7AE0F200E5F1A1 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DAFEEB9F1B72F315008151F8 /* MainController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		DADAD5401B7AE10200E5F1A1 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				DAFEEBA11B72F32D008151F8 /* TableController.swift */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		DADAD5411B7AE10C00E5F1A1 /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				DA2B20841B6B416200E1613F /* TouchController.swift */,
+				DA2B20941B6B44F700E1613F /* UITrajectoryView.swift */,
+			);
+			name = Touch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +164,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB4B1DF1B78976400209851 /* TableController.swift in Sources */,
-				DA2B20971B6B44F700E1613F /* UIRoundButton.swift in Sources */,
 				DA2B20851B6B416200E1613F /* TouchController.swift in Sources */,
 				DA2B20961B6B44F700E1613F /* UITrajectoryView.swift in Sources */,
 				DA2B20831B6B416200E1613F /* AppDelegate.swift in Sources */,
