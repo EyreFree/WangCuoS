@@ -39,7 +39,7 @@ class UITrajectoryView: UIView {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         chushihua()
         return
     }
@@ -78,22 +78,22 @@ class UITrajectoryView: UIView {
         
         //好像是创建一个上下文
         UIGraphicsBeginImageContext(bounds.size)
-        let currentContext:CGContextRef = UIGraphicsGetCurrentContext()
+        let currentContext:CGContextRef = UIGraphicsGetCurrentContext()!
         //绘制path到当前context
-        if (nil != path) {
-            CGContextSetLineWidth(currentContext, lineWidth)
-            //直线圆角
-            CGContextSetLineCap(currentContext, kCGLineCapRound)
-            CGContextSetStrokeColorWithColor(currentContext, lineColor.CGColor)
-            CGContextAddPath(currentContext, path)
-            CGContextDrawPath(currentContext, kCGPathStroke)
-        }
+        //if (nil != path) {
+        CGContextSetLineWidth(currentContext, lineWidth)
+        //直线圆角
+        CGContextSetLineCap(currentContext, CGLineCap.Round)
+        CGContextSetStrokeColorWithColor(currentContext, lineColor.CGColor)
+        CGContextAddPath(currentContext, path)
+        CGContextDrawPath(currentContext, CGPathDrawingMode.Stroke)
+        //}
         //获取刚画的这一笔
         let yibiPathImage = UIGraphicsGetImageFromCurrentImageContext()
         
         //将刚画的这一笔合成到pathimage上去
         pathImage.drawInRect(bounds)
-        yibiPathImage.drawInRect(bounds)
+        yibiPathImage!.drawInRect(bounds)
         pathImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -123,11 +123,11 @@ class UITrajectoryView: UIView {
     func createImageWithColor(color: UIColor)->UIImage {
         UIGraphicsBeginImageContext(bounds.size)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, bounds)
+        CGContextSetFillColorWithColor(context!, color.CGColor)
+        CGContextFillRect(context!, bounds)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return newImage!
     }
     
     //获取两个点的中点
@@ -158,7 +158,7 @@ class UITrajectoryView: UIView {
         var error:vImage_Error!
         
         let inProvider =  CGImageGetDataProvider(img)
-        let inBitmapData =  CGDataProviderCopyData(inProvider)
+        let inBitmapData =  CGDataProviderCopyData(inProvider!)
         
         inBuffer.memory.width = vImagePixelCount(CGImageGetWidth(img))
         inBuffer.memory.height = vImagePixelCount(CGImageGetHeight(img))
@@ -196,7 +196,7 @@ class UITrajectoryView: UIView {
             colorSpace,
             CGImageAlphaInfo.PremultipliedLast.rawValue)
         
-        let imageRef = CGBitmapContextCreateImage(ctx)
+        let imageRef = CGBitmapContextCreateImage(ctx!)
         
         //手动申请的内存释放
         inBuffer.destroy()
@@ -208,7 +208,7 @@ class UITrajectoryView: UIView {
         free(pixelBuffer)
         //手动申请内存＋0
         
-        return UIImage(CGImage:imageRef)
+        return UIImage(CGImage:imageRef!)
     }
     
     //初始化
@@ -232,8 +232,8 @@ class UITrajectoryView: UIView {
         )
         
         if (offscreenContext != nil) {
-            CGContextDrawImage(offscreenContext, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), sourceImage)
-            retVal = CGBitmapContextCreateImage(offscreenContext)
+            CGContextDrawImage(offscreenContext!, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), sourceImage)
+            retVal = CGBitmapContextCreateImage(offscreenContext!)
         }
         
         return retVal
@@ -243,12 +243,12 @@ class UITrajectoryView: UIView {
     private func maskImage(backImage:UIImage, maskImage:UIImage)->UIImage {
         let maskRef = maskImage.CGImage
         let mask = CGImageMaskCreate(
-            CGImageGetWidth(maskRef),
-            CGImageGetHeight(maskRef),
-            CGImageGetBitsPerComponent(maskRef),
-            CGImageGetBitsPerPixel(maskRef),
-            CGImageGetBytesPerRow(maskRef),
-            CGImageGetDataProvider(maskRef), nil, true
+            CGImageGetWidth(maskRef!),
+            CGImageGetHeight(maskRef!),
+            CGImageGetBitsPerComponent(maskRef!),
+            CGImageGetBitsPerPixel(maskRef!),
+            CGImageGetBytesPerRow(maskRef!),
+            CGImageGetDataProvider(maskRef!)!, nil, true
         )
         
         let sourceImage:CGImageRef = backImage.CGImage!
@@ -257,8 +257,8 @@ class UITrajectoryView: UIView {
         if (CGImageGetAlphaInfo(sourceImage) == CGImageAlphaInfo.None) {
             imageWithAlpha = CopyImageAndAddAlphaChannel(sourceImage)
         }
-        let masked = CGImageCreateWithMask(imageWithAlpha, mask)
-        let retImage = UIImage(CGImage:masked)
+        let masked = CGImageCreateWithMask(imageWithAlpha, mask!)
+        let retImage = UIImage(CGImage:masked!)
         return retImage
     }
     

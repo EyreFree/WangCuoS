@@ -19,7 +19,7 @@ class TableController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         //加载图片
         self.previewImageList = Array()
-        for (var i = 1; ; ++i) {
+        for (var i = 1; ; i += 1) {
             let tryImgPre:UIImage? = UIImage(named: "a\(i)")
             let tryImgFore:UIImage? = UIImage(named: "a\(i)_fore")
             let tryImgBack:UIImage? = UIImage(named: "a\(i)_back")
