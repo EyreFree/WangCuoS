@@ -2,7 +2,7 @@
 
 [![Language: Swift](https://img.shields.io/badge/language-swift-orange.svg)]()
 
-WangCuoS 是一款粗糙版的美女脱衣小游戏应用，此处为使用 Swift 编写的 iOS 版本。
+WangCuoS 是一个粗糙的美女脱衣小游戏应用，此处为使用 Swift 编写的 iOS 版本。
 
 ## 开发环境
 
